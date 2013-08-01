@@ -24,3 +24,7 @@ gem 'shotgun'
 
 gem 'faker'
 gem 'rspec'
+
+gem 'oauth2'
+
+gem 'json'

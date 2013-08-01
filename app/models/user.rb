@@ -1,31 +1,31 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  validates :email, uniqueness: true
-  validates :email, :password_hash, :first_name, :last_name, presence: true
+  # validates :email, uniqueness: true
+  # validates :email, :password_hash, :first_name, :last_name, presence: true
 
-  include BCrypt
+  # include BCrypt
   
-  def password
-    @password ||= Password.new(password_hash)
-  end
+  # def password
+  #   @password ||= Password.new(password_hash)
+  # end
 
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_hash = @password
-  end
+  # def password=(new_password)
+  #   @password = Password.create(new_password)
+  #   self.password_hash = @password
+  # end
 
-  def self.authenticate(email,password)
-    user = self.where(email: email)[0]
+  # def self.authenticate(email,password)
+  #   user = self.where(email: email)[0]
 
-    if user
-      if user.password == password
-        puts user.password
-        return user
-      end
-    end
+  #   if user
+  #     if user.password == password
+  #       puts user.password
+  #       return user
+  #     end
+  #   end
 
-    return nil
+  #   return nil
 
-  end
+  # end
 end
